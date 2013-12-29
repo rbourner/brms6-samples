@@ -1,0 +1,12 @@
+package org.rule
+
+import org.rule.model.SimpleFact;
+
+rule "Rule AAAAA"
+ruleflow-group "ComputeFacts"
+when
+	$f: SimpleFact(status == "NOK" )
+then
+	$f.setStatus("OK");
+	update ($f);
+end

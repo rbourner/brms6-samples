@@ -1,0 +1,11 @@
+package org.rule
+
+import org.rule.model.SimpleFact;
+
+rule "Rule A"
+when
+	$f: SimpleFact(status == "NOK" )
+then
+	$f.setStatus("OK");
+	update ($f);
+end

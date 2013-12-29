@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+	<kbase name="defaultkiebase" equalsBehavior="equality" eventProcessingMode="stream">
+		<ksession name="session0" default="true" type="stateful" clockType="realtime"/>
+	</kbase>
+
+	<kbase name="mykbase" packages="org.acme" equalsBehavior="equality" eventProcessingMode="stream">
+		<ksession name="session1" type="stateful" clockType="realtime">
+			<fileLogger file="logs/drools" threaded="true" interval="10"/>
+			<listeners>
+				<workingMemoryEventListener type="org.rule.listeners.MyWMListener"/>
+		        <agendaEventListener type="org.rule.listeners.MyAgendaListener"/>
+		        <processEventListener type="org.rule.listeners.MyProcessListener"/>
+      		</listeners>
+		</ksession>
+	</kbase>
+
+</kmodule>
