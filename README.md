@@ -1,2 +1,2 @@
-brms6-samples
+BRMS6 Samples
 =============
